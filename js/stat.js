@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+(function () {
 
   var MODAL_CORD_X = 100;
   var MODAL_CORD_Y = 10;
@@ -16,8 +16,8 @@
   var CHART_MAIN_COLOR = 'rgba(255, 0, 0, 1)';
   var CHART_PADDING = 50;
 
-  var modalColor =  '#fff';
-  var modalShadowColor =  'rgba(0, 0, 0, 0.3)';
+  var modalColor = '#fff';
+  var modalShadowColor = 'rgba(0, 0, 0, 0.7)';
   var textColor = '#000';
   var textFont = '16px PT Mono';
 
@@ -35,12 +35,12 @@
     ctx.fillText(text, x, y);
   };
 
-  var renderСhart = function(ctx, x, y, width, height, color) { // функция отрисовки гистограммы
+  var renderСhart = function (ctx, x, y, width, height, color) { // функция отрисовки гистограммы
     ctx.fillStyle = color;
     ctx.fillRect(x, y, width, height);
   };
 
-  var getMaxElement = function(arr) { // функция для получения наибольшего числа в массиве
+  var getMaxElement = function (arr) { // функция для получения наибольшего числа в массиве
     var maxElement = arr[0];
 
     for (var i = 0; i < arr.length; i++) {
@@ -55,11 +55,11 @@
     return 'hsl(240,' + Math.round(Math.random() * 100) + '%,50%)';
   };
 
-  window.renderStatistics = function(ctx, name, time) { // главная функция
+  window.renderStatistics = function (ctx, name, time) { // главная функция
 
     renderModal(ctx, MODAL_CORD_X, MODAL_CORD_Y, MODAL_WIDTH, MODAL_HEIGHT, modalColor, modalShadowColor);
     renderText(ctx, 'Ура вы победили!', MODAL_TEXT_WIN_X, MODAL_TEXT_WIN_Y, textColor, textFont);
-    renderText(ctx, 'Список результатов: ',MODAL_TEXT_RESULT_LIST_X, MODAL_TEXT_RESULT_LIST_Y, textColor, textFont);
+    renderText(ctx, 'Список результатов: ', MODAL_TEXT_RESULT_LIST_X, MODAL_TEXT_RESULT_LIST_Y, textColor, textFont);
 
     var integerTime = [];
 
@@ -73,7 +73,7 @@
 
     for (var b = 0; b < name.length; b++) {
 
-      heightСhart =  CHART_HEIGHT * integerTime[b] / getMaxElement(integerTime);
+      heightСhart = CHART_HEIGHT * integerTime[b] / getMaxElement(integerTime);
       widthChart = MODAL_CORD_X + 55 + indent;
 
       if (name[b] === 'Вы') { // условие для цвета гистограммы главного игрока
@@ -83,7 +83,7 @@
       }
 
       // отрисовываем текст с результатом
-      renderText(ctx, integerTime[b], widthChart, MODAL_CORD_Y + 75  + (CHART_HEIGHT - heightСhart), textColor, textFont);
+      renderText(ctx, integerTime[b], widthChart, MODAL_CORD_Y + 75 + (CHART_HEIGHT - heightСhart), textColor, textFont);
       renderText(ctx, name[b], widthChart, MODAL_CORD_Y + 255, textColor, textFont);
 
       // добавляем отступ для следующей отрисовки

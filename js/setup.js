@@ -180,4 +180,6 @@
   wizardFireball.addEventListener('click', function (evt) {
     randomColorElement(FIREBALL_COLORS, evt.target, 'background-color', inputFireballColor);
   });
+
+  wizardForm.setAttribute('action', 'https://js.dump.academy/code-and-magick');
 })();

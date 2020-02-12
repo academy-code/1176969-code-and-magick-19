@@ -45,8 +45,8 @@
     '#e6e848'
   ];
 
+  // Для того, что показать окно поста удалить класс hidden
   var wizardsModal = document.querySelector('.setup');
-  // wizardsModal.classList.remove('hidden');
 
   var wizardsBlock = document.querySelector('.setup-similar');
   wizardsBlock.classList.remove('hidden');
@@ -163,23 +163,22 @@
     }
   });
 
-  var randomColorElement = function (colors, element, property, input) {
+  var setRandomColor = function (colors, element, property, input) {
     var randomColors = getRandomElement(colors);
     element.style = property + ':' + randomColors;
     input.value = randomColors;
   };
 
   wizardCoat.addEventListener('click', function (evt) {
-    randomColorElement(COAT_COLORS, evt.target, 'fill', inputCoatColor);
+    setRandomColor(COAT_COLORS, evt.target, 'fill', inputCoatColor);
   });
 
   wizardEyes.addEventListener('click', function (evt) {
-    randomColorElement(EYES_COLORS, evt.target, 'fill', inputEyesColor);
+    setRandomColor(EYES_COLORS, evt.target, 'fill', inputEyesColor);
   });
 
   wizardFireball.addEventListener('click', function (evt) {
-    randomColorElement(FIREBALL_COLORS, evt.target, 'background-color', inputFireballColor);
+    setRandomColor(FIREBALL_COLORS, evt.target, 'background-color', inputFireballColor);
   });
 
-  wizardForm.setAttribute('action', 'https://js.dump.academy/code-and-magick');
 })();

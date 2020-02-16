@@ -58,8 +58,8 @@
     var name = window.getRandomElement(WIZARDS_NAMES);
     var surname = window.getRandomElement(WIZARDS_SURNAMES);
     var randomName = window.getRandomNumber(2) === 1 ? name + ' ' + surname : surname + ' ' + name;
-    var coatColor = window.getRandomElement(COAT_COLORS);
-    var eyesColor = window.getRandomElement(EYES_COLORS);
+    var coatColor = window.getRandomElement(window.COAT_COLORS);
+    var eyesColor = window.getRandomElement(window.EYES_COLORS);
 
     return {
       name: randomName,

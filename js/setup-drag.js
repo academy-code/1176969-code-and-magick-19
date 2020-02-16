@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 // ----------- MODULE5 ----------
 (function () {
   var elementDragMouse = window.wizardsModal.querySelector('.upload');

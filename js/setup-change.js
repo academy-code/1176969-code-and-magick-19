@@ -5,8 +5,8 @@
   window.wizardsModal = document.querySelector('.setup');
   var buttonOpenModal = document.querySelector('.setup-open');
   var iconButtonOpenModal = document.querySelector('.setup-open-icon');
-  var buttonCloseModal = wizardsModal.querySelector('.setup-close');
-  var wizardForm = wizardsModal.querySelector('.setup-wizard-form');
+  var buttonCloseModal = window.wizardsModal.querySelector('.setup-close');
+  var wizardForm = window.wizardsModal.querySelector('.setup-wizard-form');
   var buttonSubmit = wizardForm.querySelector('.setup-submit');
   var wizardCoat = wizardForm.querySelector('.setup-wizard .wizard-coat');
   var wizardEyes = wizardForm.querySelector('.setup-wizard .wizard-eyes');
@@ -17,19 +17,19 @@
   var inputFireballColor = wizardForm.querySelector('.setup-player input[name="fireball-color"]');
 
   buttonOpenModal.addEventListener('click', function () {
-    wizardsModal.classList.remove('hidden');
+    window.wizardsModal.classList.remove('hidden');
   });
 
   iconButtonOpenModal.addEventListener('keydown', function (evt) {
     if (evt.keyCode === window.ENTER_KEY) {
-      wizardsModal.classList.remove('hidden');
+      window.wizardsModal.classList.remove('hidden');
     }
   });
 
   var setHiddenModal = function () {
-    wizardsModal.classList.add('hidden');
-    wizardsModal.style.top = '80px';
-    wizardsModal.style.left = '50%';
+    window.wizardsModal.classList.add('hidden');
+    window.wizardsModal.style.top = '80px';
+    window.wizardsModal.style.left = '50%';
   };
 
   buttonCloseModal.addEventListener('click', setHiddenModal);

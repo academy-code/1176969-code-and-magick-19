@@ -1,6 +1,7 @@
 'use strict';
-
+// ---------- MODULE3 ----------
 (function () {
+
   var WIZARDS_AMOUNT = 4;
   var WIZARDS_NAMES = [
     'Иван',
@@ -22,7 +23,7 @@
     'Нионго',
     'Ирвинг'
   ];
-  var COAT_COLORS = [
+  window.COAT_COLORS = [
     'rgb(101, 137, 164)',
     'rgb(241, 43, 107)',
     'rgb(146, 100, 161)',
@@ -30,14 +31,14 @@
     'rgb(215, 210, 55)',
     'rgb(0, 0, 0)'
   ];
-  var EYES_COLORS = [
+  window.EYES_COLORS = [
     'black',
     'red',
     'blue',
     'yellow',
     'green'
   ];
-  var FIREBALL_COLORS = [
+  window.FIREBALL_COLORS = [
     '#ee4830',
     '#30a8ee',
     '#5ce6c0',
@@ -45,11 +46,7 @@
     '#e6e848'
   ];
 
-  // Для того, что показать окно поста удалить класс hidden
-  var wizardsModal = document.querySelector('.setup');
-
   var wizardsBlock = document.querySelector('.setup-similar');
-  wizardsBlock.classList.remove('hidden');
 
   var wizardTemplate = document.querySelector('#similar-wizard-template')
     .content
@@ -57,20 +54,12 @@
 
   var similarListWizards = document.querySelector('.setup-similar-list');
 
-  var getRandomElement = function (array) {
-    return array[Math.floor(Math.random() * array.length)];
-  };
-
-  var getRandomNumber = function (number) {
-    return Math.ceil(Math.random() * number);
-  };
-
   var createWizard = function () {
-    var name = getRandomElement(WIZARDS_NAMES);
-    var surname = getRandomElement(WIZARDS_SURNAMES);
-    var randomName = getRandomNumber(2) === 1 ? name + ' ' + surname : surname + ' ' + name;
-    var coatColor = getRandomElement(COAT_COLORS);
-    var eyesColor = getRandomElement(EYES_COLORS);
+    var name = window.getRandomElement(WIZARDS_NAMES);
+    var surname = window.getRandomElement(WIZARDS_SURNAMES);
+    var randomName = window.getRandomNumber(2) === 1 ? name + ' ' + surname : surname + ' ' + name;
+    var coatColor = window.getRandomElement(COAT_COLORS);
+    var eyesColor = window.getRandomElement(EYES_COLORS);
 
     return {
       name: randomName,
@@ -109,76 +98,6 @@
     similarListWizards.appendChild(fragment);
   };
 
+  wizardsBlock.classList.remove('hidden');
   renderWizards(createWizards(WIZARDS_AMOUNT));
-
-  var ENTER_KEY = 13;
-  var ESC_KEY = 27;
-
-  var buttonOpenModal = document.querySelector('.setup-open');
-  var iconButtonOpenModal = document.querySelector('.setup-open-icon');
-  var buttonCloseModal = wizardsModal.querySelector('.setup-close');
-  var wizardForm = wizardsModal.querySelector('.setup-wizard-form');
-  var buttonSubmit = wizardForm.querySelector('.setup-submit');
-  var wizardCoat = wizardForm.querySelector('.setup-wizard .wizard-coat');
-  var wizardEyes = wizardForm.querySelector('.setup-wizard .wizard-eyes');
-  var wizardFireball = wizardForm.querySelector('.setup-fireball-wrap');
-  var inputUserName = wizardForm.querySelector('.setup-user-name');
-  var inputCoatColor = wizardForm.querySelector('.setup-player input[name="coat-color"]');
-  var inputEyesColor = wizardForm.querySelector('.setup-player input[name="eyes-color"]');
-  var inputFireballColor = wizardForm.querySelector('.setup-player input[name="fireball-color"]');
-
-  buttonOpenModal.addEventListener('click', function () {
-    wizardsModal.classList.remove('hidden');
-  });
-
-  buttonCloseModal.addEventListener('click', function () {
-    wizardsModal.classList.add('hidden');
-  });
-
-  iconButtonOpenModal.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEY) {
-      wizardsModal.classList.remove('hidden');
-    }
-  });
-
-  document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ESC_KEY && evt.target !== inputUserName) {
-      wizardsModal.classList.add('hidden');
-    }
-  });
-
-  buttonCloseModal.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEY) {
-      wizardsModal.classList.add('hidden');
-    }
-  });
-
-  buttonSubmit.addEventListener('click', function () {
-    wizardForm.submit();
-  });
-
-  buttonSubmit.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_KEY) {
-      wizardForm.submit();
-    }
-  });
-
-  var setRandomColor = function (colors, element, property, input) {
-    var randomColors = getRandomElement(colors);
-    element.style = property + ':' + randomColors;
-    input.value = randomColors;
-  };
-
-  wizardCoat.addEventListener('click', function (evt) {
-    setRandomColor(COAT_COLORS, evt.target, 'fill', inputCoatColor);
-  });
-
-  wizardEyes.addEventListener('click', function (evt) {
-    setRandomColor(EYES_COLORS, evt.target, 'fill', inputEyesColor);
-  });
-
-  wizardFireball.addEventListener('click', function (evt) {
-    setRandomColor(FIREBALL_COLORS, evt.target, 'background-color', inputFireballColor);
-  });
-
 })();

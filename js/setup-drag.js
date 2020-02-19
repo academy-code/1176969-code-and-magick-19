@@ -1,7 +1,7 @@
 'use strict';
 // ----------- MODULE5 ----------
 (function () {
-  var elementDragMouse = window.wizardsModal.querySelector('.upload');
+  var elementDragMouse = window.utility.wizardsModal.querySelector('.upload');
 
   elementDragMouse.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
@@ -27,8 +27,8 @@
         x: evtMove.clientX,
         y: evtMove.clientY
       };
-      window.wizardsModal.style.top = (window.wizardsModal.offsetTop - shift.y) + 'px';
-      window.wizardsModal.style.left = (window.wizardsModal.offsetLeft - shift.x) + 'px';
+      window.utility.wizardsModal.style.top = (window.utility.wizardsModal.offsetTop - shift.y) + 'px';
+      window.utility.wizardsModal.style.left = (window.utility.wizardsModal.offsetLeft - shift.x) + 'px';
     };
     var onMouseUp = function (evtUp) {
       evtUp.preventDefault();

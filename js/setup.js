@@ -55,11 +55,11 @@
   var similarListWizards = document.querySelector('.setup-similar-list');
 
   var createWizard = function () {
-    var name = window.getRandomElement(WIZARDS_NAMES);
-    var surname = window.getRandomElement(WIZARDS_SURNAMES);
-    var randomName = window.getRandomNumber(2) === 1 ? name + ' ' + surname : surname + ' ' + name;
-    var coatColor = window.getRandomElement(window.COAT_COLORS);
-    var eyesColor = window.getRandomElement(window.EYES_COLORS);
+    var name = window.utility.getRandomElement(WIZARDS_NAMES);
+    var surname = window.utility.getRandomElement(WIZARDS_SURNAMES);
+    var randomName = window.utility.getRandomNumber(2) === 1 ? name + ' ' + surname : surname + ' ' + name;
+    var coatColor = window.utility.getRandomElement(window.COAT_COLORS);
+    var eyesColor = window.utility.getRandomElement(window.EYES_COLORS);
 
     return {
       name: randomName,

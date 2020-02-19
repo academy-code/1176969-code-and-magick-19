@@ -60,7 +60,7 @@
 
     for (var b = 0; b < name.length; b++) {
 
-      heightСhart = CHART_HEIGHT * integerTime[b] / window.getMaxElement(integerTime);
+      heightСhart = CHART_HEIGHT * integerTime[b] / window.utility.getMaxElement(integerTime);
       widthChart = MODAL_CORD_X + 55 + indent;
 
       if (name[b] === 'Вы') { // условие для цвета гистограммы главного игрока

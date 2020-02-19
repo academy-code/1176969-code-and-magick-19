@@ -2,11 +2,10 @@
 // ---------- MODULE4 ----------
 (function () {
 
-  window.wizardsModal = document.querySelector('.setup');
   var buttonOpenModal = document.querySelector('.setup-open');
   var iconButtonOpenModal = document.querySelector('.setup-open-icon');
-  var buttonCloseModal = window.wizardsModal.querySelector('.setup-close');
-  var wizardForm = window.wizardsModal.querySelector('.setup-wizard-form');
+  var buttonCloseModal = window.utility.wizardsModal.querySelector('.setup-close');
+  var wizardForm = window.utility.wizardsModal.querySelector('.setup-wizard-form');
   var buttonSubmit = wizardForm.querySelector('.setup-submit');
   var wizardCoat = wizardForm.querySelector('.setup-wizard .wizard-coat');
   var wizardEyes = wizardForm.querySelector('.setup-wizard .wizard-eyes');
@@ -17,31 +16,31 @@
   var inputFireballColor = wizardForm.querySelector('.setup-player input[name="fireball-color"]');
 
   buttonOpenModal.addEventListener('click', function () {
-    window.wizardsModal.classList.remove('hidden');
+    window.utility.wizardsModal.classList.remove('hidden');
   });
 
   iconButtonOpenModal.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.ENTER_KEY) {
-      window.wizardsModal.classList.remove('hidden');
+    if (evt.keyCode === window.utility.ENTER_KEY) {
+      window.utility.wizardsModal.classList.remove('hidden');
     }
   });
 
   var setHiddenModal = function () {
-    window.wizardsModal.classList.add('hidden');
-    window.wizardsModal.style.top = '80px';
-    window.wizardsModal.style.left = '50%';
+    window.utility.wizardsModal.classList.add('hidden');
+    window.utility.wizardsModal.style.top = '80px';
+    window.utility.wizardsModal.style.left = '50%';
   };
 
   buttonCloseModal.addEventListener('click', setHiddenModal);
 
   document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.ESC_KEY && evt.target !== inputUserName) {
+    if (evt.keyCode === window.utility.ESC_KEY && evt.target !== inputUserName) {
       setHiddenModal();
     }
   });
 
   buttonCloseModal.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.ENTER_KEY) {
+    if (evt.keyCode === window.utility.ENTER_KEY) {
       setHiddenModal();
     }
   });
@@ -51,13 +50,13 @@
   });
 
   buttonSubmit.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.ENTER_KEY) {
+    if (evt.keyCode === window.utility.ENTER_KEY) {
       wizardForm.submit();
     }
   });
 
   var setRandomColor = function (colors, element, property, input) {
-    var randomColors = window.getRandomElement(colors);
+    var randomColors = window.utility.getRandomElement(colors);
     element.style = property + ':' + randomColors;
     input.value = randomColors;
   };

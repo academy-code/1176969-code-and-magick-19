@@ -26,8 +26,8 @@
   var getRandomElement = function (array) {
     return array[Math.floor(Math.random() * array.length)];
   };
-  var getRandomNumber = function (number) {
-    return Math.ceil(Math.random() * number);
+  var getRandomNumber = function (max) {
+    return Math.ceil(Math.random() * max);
   };
   window.utility = {
     ENTER_KEY: ENTER_KEY,

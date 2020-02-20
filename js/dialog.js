@@ -15,7 +15,7 @@
     var dragged = false;
 
     // двигаем окно
-    var onMouseMove = function (evtMove) {
+    var mouseMoveHandler = function (evtMove) {
       evtMove.preventDefault();
       dragged = true;
 
@@ -30,22 +30,22 @@
       window.utility.wizardsModal.style.top = (window.utility.wizardsModal.offsetTop - shift.y) + 'px';
       window.utility.wizardsModal.style.left = (window.utility.wizardsModal.offsetLeft - shift.x) + 'px';
     };
-    var onMouseUp = function (evtUp) {
+    var mouseUpHandler = function (evtUp) {
       evtUp.preventDefault();
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('mousemove', mouseMoveHandler);
+      document.removeEventListener('mouseup', mouseUpHandler);
 
       if (dragged) {
-        var onClickPreventDefault = function (evtClick) {
+        var clickPreventDefaultHandler = function (evtClick) {
           evtClick.preventDefault();
-          elementDragMouse.removeEventListener('click', onClickPreventDefault);
+          elementDragMouse.removeEventListener('click', clickPreventDefaultHandler);
         };
-        elementDragMouse.addEventListener('click', onClickPreventDefault);
+        elementDragMouse.addEventListener('click', clickPreventDefaultHandler);
       }
 
     };
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
   });
 
   // Задаём начальное положение функция setHiddenModal MODULE4
